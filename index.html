@@ -1,47 +1,858 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Under Maintenance</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-            margin: 0;
-        }
-        .maintenance-box {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .maintenance-box h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        .maintenance-box p {
-            font-size: 1.2rem;
-            color: #6c757d;
-        }
-    </style>
-</head>
-<body>
-    <div class="maintenance-box">
-        <h1>We'll Be Back Soon!</h1>
-        <p>The website is currently under maintenance.<br>Please check back later.</p>
-        <hr>
-        <p class="text-muted">&copy; 2024 Lahiru Rajapakshe</p>
-    </div>
+    <head>
+        <meta charset="utf-8">
+        <title>Lahiru Rajapakshe</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
 
-    <!-- Bootstrap JS (Optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+        <!-- Favicon -->
+        <link href="img/icons8-personal-64.png" rel="icon" >
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-light navbar-light">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">LARA</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    
+                    <div class="navbar-nav ml-auto">
+                        <a href="#home" class="nav-item nav-link active">Home</a>
+                        <a href="#about" class="nav-item nav-link">About</a>
+                        <a href="#service" class="nav-item nav-link">Service</a>
+                        <a href="#experience" class="nav-item nav-link">Experience</a>
+                        <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                        <!-- <a href="#price" class="nav-item nav-link">Price</a> -->
+                        <a href="#review" class="nav-item nav-link">Review</a>
+                        <!-- <a href="#team" class="nav-item nav-link">Team</a> -->
+                        <a href="#blog" class="nav-item nav-link">Blog</a>
+                        <!-- <a href="#contact" class="nav-item nav-link">Contact</a> -->
+                         
+                    </div>
+                </div>    
+            </div>
+        </div>
+        
+        <!-- Nav Bar End -->
+
+
+        <!-- Hero Start -->
+        <div class="hero" id="home">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <p>I'm</p>
+                                <h1>Lahiru Rajapakshe</h1>
+                                <h2></h2>
+                                <div class="typed-text">Software Engineer, Backend Developments, Cloud Solutions</div>
+                            </div>
+                            <div class="hero-btn">
+                                <a class="btn" href="tel:+94716954985">Hire Me</a>
+                                <!-- <a class="btn" href="">Contact Me</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                        <div class="hero-image">
+                            <img src="img/IMG_4771.jpg" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero End -->
+
+
+        <!-- About Start -->
+        <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-img">
+                            <img src="img/WhatsApp Image 2024-09-16 at 09.54.16_587e1fbb.jpg" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <div class="section-header text-left">
+                                <p>Learn About Me</p>
+                                <h2>3 Years of Experience</h2>
+                            </div>
+                            <div class="about-text">
+                                <p>
+                                    
+                                    I am a skilled backend software engineer with 3 years of experience, specializing in developing robust and scalable solutions using Spring Boot. My expertise includes building and managing microservices architectures that seamlessly integrate with Apache Kafka for real-time data streaming. I am also highly proficient in implementing cloud solutions and container orchestration using Kubernetes, complemented by continuous integration and deployment practices involving tools like Nexus and Ansible.
+
+My tech stack spans a wide range of backend frameworks and data management systems, including Hibernate, JPA, and databases like CockroachDB, PostgreSQL, MySQL, and MongoDB. For caching, I work with Redis and Redis Sentinel to ensure high availability and reliability in distributed environments.
+
+I bring hands-on experience with DevOps monitoring and observability tools such as Grafana, Prometheus, Loki, and MinIO for object storage. My testing toolkit includes Cypress, JMeter, and Katalon Studio for automated and performance testing, ensuring my applications are both reliable and efficient.
+
+I’m also adept with Linux environments, having worked with both Ubuntu and lightweight distributions like Lubuntu to optimize for various system requirements.
+
+With this comprehensive stack, I’m equipped to deliver high-quality backend solutions that meet the demands of modern, cloud-native applications.
+
+                                </p>
+                            </div>
+                            <!-- <div class="skills">
+                                <div class="skill-name">
+                                    <p>Web Design</p><p>85%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Web Development</p><p>95%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Apps Design</p><p>90%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Apps Development</p><p>85%</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div> -->
+                            <a class="btn" href="">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+        
+        
+        <!-- Service Start -->
+        <div class="service" id="service">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>What I do</p>
+                    <h2>Awesome Quality Services</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-server"></i> <!-- Changed to a server icon for backend development -->
+                            </div>
+                            <div class="service-text">
+                                <h3>Backend Developments</h3>
+                                <p>
+                                    Specializing in building robust and scalable backend solutions using Java Spring framework. I ensure optimized performance, security, and seamless integrations to power modern applications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i> <!-- Changed to a cloud icon for cloud solutions -->
+                            </div>
+                            <div class="service-text">
+                                <h3>Cloud Solutions</h3>
+                                <p>
+                                    Expertise in deploying and managing cloud-native applications using Kubernetes, Harbor, and Linux, delivering highly available, scalable, and resilient systems for enterprise needs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-desktop"></i> <!-- Changed to a desktop icon for desktop app development -->
+                            </div>
+                            <div class="service-text">
+                                <h3>Desktop App Developments</h3>
+                                <p>
+                                    Developed custom desktop applications for external clients, providing tailored solutions for business operations and productivity, focusing on high-performance, user-friendly interfaces.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-check-circle"></i> <!-- Changed to a check-circle icon for quality assurance -->
+                            </div>
+                            <div class="service-text">
+                                <h3>Quality Assurance (QA)</h3>
+                                <p>
+                                    Implementing rigorous testing methodologies to ensure software quality, reliability, and performance. My QA practices focus on identifying and resolving issues before deployment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- Service End -->
+        
+        
+         <!-- Experience Start -->
+        <div class="experience" id="experience">
+            <div class="container">
+                <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <!-- <p>My Resume</p> -->
+                    <h2>Working Experience</h2>
+                </header>
+                <div class="timeline">
+                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">2024 - Present</div>
+                            <h2>CEO</h2>
+                            <h4>Avalonic Labs</h4>
+                            <p>
+                                Led the company's growth and product development, managing a small team of engineers and successfully launching operations in key initial markets.                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">2024 - Present</div>
+                            <h2>Software Engineer</h2>
+                            <h4>Drifting Desk</h4>
+                            <p>
+                                Developed and optimized cloud-based solutions, improving platform scalability by 30%. Collaborated on AI-driven projects for industry clients.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">2023 - 2024</div>
+                            <h2>Software Engineer</h2>
+                            <h4>NovaTechZone (Pvt) LTD</h4>
+                            <p>
+                                Worked on full-stack development of enterprise applications, integrating microservices and enhancing system performance by 25%.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">2023 - 2023</div>
+                            <h2>Associate Software Engineer</h2>
+                            <h4>Digital Micro Services (Pvt) LTD</h4>
+                            <p>
+                                Contributed to backend services and API development, focusing on scalability and performance enhancements across multiple products.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">2023 - 2023</div>
+                            <h2>Associate Software Developer</h2>
+                            <h4>Digital Micro Services (Pvt) LTD</h4>
+                            <p>
+                                Assisted in designing and implementing features for large-scale applications, collaborating with senior engineers to ensure code quality and performance.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">2022 - 2023</div>
+                            <h2>Trainee Software Developer</h2>
+                            <h4>Digital Micro Services (Pvt) LTD</h4>
+                            <p>
+                                Gained hands-on experience in software development, contributing to several projects by writing efficient, maintainable code and performing debugging tasks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Job Experience End -->
+        
+        
+        <!-- Banner Start -->
+        <div class="banner wow zoomIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Started my own Company <span>Avalonic Labs</span></h2>
+                </div>
+                <div class="container banner-text">
+                    <p>
+                        At Avalonic Labs, we specialize in developing tailored applications based on client requirements. Whether it's desktop, mobile, or web apps, we provide comprehensive solutions designed to meet your business needs with efficiency and precision.
+                    </p>
+                    <a class="btn">Visit Avalonic Labs</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Banner End -->
+
+
+        <!-- Portfolio Start -->
+        <div class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <!-- <p>My Portfolio</p> -->
+                    <h2>The Projects Done By Me</h2>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul id="portfolio-filter">
+                            <!-- <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".filter-1">Web Design</li>
+                            <li data-filter=".filter-2">Mobile Apps</li>
+                            <li data-filter=".filter-3">Game Dev</li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="row portfolio-container">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="portfolio-wrap">
+                            <div class="portfolio-img">
+                                <img src="img/portfolio-1.jpg" alt="Image">
+                            </div>
+                            <div class="portfolio-text">
+                                <h3>Bar POS System</h3>
+                                <a class="btn" href="img/portfolio-1.jpg" data-lightbox="portfolio">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="portfolio-wrap">
+                            <div class="portfolio-img">
+                                <img src="img/portfolio-2.jpg" alt="Image">
+                            </div>
+                            <div class="portfolio-text">
+                                <h3>Future Ruhunu</h3>
+                                <a class="btn" href="img/portfolio-2.jpg" data-lightbox="portfolio">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="portfolio-wrap">
+                            <div class="portfolio-img">
+                                <img src="img/portfolio-3.jpg" alt="Image">
+                            </div>
+                            <div class="portfolio-text">
+                                <h3>SMS (KBNS)</h3>
+                                <a class="btn" href="img/portfolio-3.jpg" data-lightbox="portfolio">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="portfolio-wrap">
+                            <div class="portfolio-img">
+                                <img src="img/portfolio-4.jpg" alt="Image">
+                            </div>
+                            <div class="portfolio-text">
+                                <h3>JavaScript drawing</h3>
+                                <a class="btn" href="img/portfolio-4.jpg" data-lightbox="portfolio">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.8s">
+                        <div class="portfolio-wrap">
+                            <div class="portfolio-img">
+                                <img src="img/portfolio-5.jpg" alt="Image">
+                            </div>
+                            <div class="portfolio-text">
+                                <h3>Social Mobile Apps</h3>
+                                <a class="btn" href="img/portfolio-5.jpg" data-lightbox="portfolio">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-3 wow fadeInUp" data-wow-delay="1s">
+                        <div class="portfolio-wrap">
+                            <div class="portfolio-img">
+                                <img src="img/portfolio-6.jpg" alt="Image">
+                            </div>
+                            <div class="portfolio-text">
+                                <h3>Company Website</h3>
+                                <a class="btn" href="img/portfolio-6.jpg" data-lightbox="portfolio">+</a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio End -->
+        
+        
+        <!-- Banner Start -->
+        <!-- <div class="banner wow zoomIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Awesome Discount</p>
+                    <h2>Get <span>30%</span> Discount</h2>
+                </div>
+                <div class="container banner-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. 
+                    </p>
+                    <a class="btn">Order Now</a>
+                </div>
+            </div>
+        </div> -->
+        <!-- Banner End -->
+        
+        
+        <!-- Price Start -->
+        <!-- <div class="price" id="price">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>Pricing Plan</p>
+                    <h2>Affordable Price</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>Basic</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small>$</small>49<span>/ mo</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                        <li>Bootstrap 4</li>
+                                        <li>Font Awesome 5</li>
+                                        <li>Responsive Design</li>
+                                        <li>Browser Compatibility</li>
+                                        <li>Easy To Use</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn" href="">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="price-item featured-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>Standard</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small>$</small>99<span>/ mo</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                        <li>Bootstrap 4</li>
+                                        <li>Font Awesome 5</li>
+                                        <li>Responsive Design</li>
+                                        <li>Browser Compatibility</li>
+                                        <li>Easy To Use</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn" href="">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>Premium</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small>$</small>149<span>/ mo</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                        <li>Bootstrap 4</li>
+                                        <li>Font Awesome 5</li>
+                                        <li>Responsive Design</li>
+                                        <li>Browser Compatibility</li>
+                                        <li>Easy To Use</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn" href="">Order Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Price End -->
+        
+        
+        <!-- Testimonial Start -->
+        <div class="testimonial wow fadeInUp" data-wow-delay="0.1s" id="review">
+            <div class="container">
+                <div class="testimonial-icon">
+                    <i class="fa fa-quote-left"></i>
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="img/kumara.jpeg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lahiru is a skillfull person and he has the ability to grap the requirements quickly. he is dedicated towards the works and he is skilled at fullstack development. he is honest and a dedicated person with great mindset.
+                            </p>
+                            <h3>Indika N. Kumara</h3>
+                            <h4>Software Engineer</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="img/devinda.jpeg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lahiru is young talented guy who has passionate and dedication to learn and grow. I work with him in several projects and he knows how to face any challange come across. One of the humble and enthusiastic co-workers that I worked with and the work he has done is highly recommended.
+                            </p>
+                            <h3>Devinda Ravisara Weerakkody</h3>
+                            <h4>Software Engineer at Serole Technologies</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="img/isuru.jpeg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lahiru is the one of best among all peaople I have ever met. Working with Lahiru I found him as a person with great recognition and deep experience of IT solutions. Ambitious employee with boundless energy, that's Lahiru! Has strong organizational skills.
+                            </p>
+                            <h3>Isuru Madushan</h3>
+                            <h4>Software Engineer | Mobile app Developer</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        <!-- Team Start -->
+        <!-- <div class="team" id="team">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>My Team</p>
+                    <h2>Expert Team Members</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-1.jpg" alt="Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Mollie Ross</h2>
+                                <h4>Web Designer</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet consec adipis elit. Etiam accum lacus
+                                </p>
+                                <div class="team-social">
+                                    <a class="btn" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-2.jpg" alt="Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Dylan Adams</h2>
+                                <h4>Web Developer</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet consec adipis elit. Etiam accum lacus
+                                </p>
+                                <div class="team-social">
+                                    <a class="btn" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-3.jpg" alt="Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Jennifer Page</h2>
+                                <h4>Apps Designer</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet consec adipis elit. Etiam accum lacus
+                                </p>
+                                <div class="team-social">
+                                    <a class="btn" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-4.jpg" alt="Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Josh Dunn</h2>
+                                <h4>Apps Developer</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet consec adipis elit. Etiam accum lacus
+                                </p>
+                                <div class="team-social">
+                                    <a class="btn" href=""><i class="fab fa-twitter"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Team End -->
+        
+        
+        <!-- Contact Start -->
+        <!-- <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8">
+                            <div class="contact-form">
+                                <div id="success"></div>
+                                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                        <p class="help-block"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                        <p class="help-block"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                        <p class="help-block"></p>
+                                    </div>
+                                    <div class="control-group">
+                                        <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                        <p class="help-block"></p>
+                                    </div>
+                                    <div>
+                                        <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Contact End -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .carousel-item img {
+              max-height: 350px; /* Increased height for larger images */
+              object-fit: cover;
+              width: 100%;
+              border: 5px solid #454f5a; /* Blue border around the images */
+              border-radius: 10px; /* Rounded corners */
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            }
+        
+            /* Optional: You can also add a border around the whole carousel */
+            .carousel-inner {
+              border: 3px solid #888888; /* Blue border for the carousel itself */
+              border-radius: 10px; /* Rounded corners for the whole carousel */
+              padding: 5px; /* Padding between the border and images */
+            }
+          </style>
+<div class="container mt-5">
+    <h2 class="text-center">Memories with My Team</h2>
+    
+    <!-- Carousel Section -->
+    <div id="achievementSlider" class="carousel slide" data-ride="carousel" style="max-width: 400px; margin: 0 auto;">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/d1.jpg" class="d-block w-100" alt="Achievement 1">
+        </div>
+        <div class="carousel-item">
+          <img src="img/d2.jpg" class="d-block w-100" alt="Achievement 2">
+        </div>
+        <div class="carousel-item">
+          <img src="img/d1.jpg" class="d-block w-100" alt="Achievement 3">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#achievementSlider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#achievementSlider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Blog Start -->
+        <div class="blog" id="blog">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>From Medium</p>
+                    <h2>Latest Articles</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="blog-img">
+                                <img src="https://media.licdn.com/dms/image/D4E12AQHBN7Q_AwcorQ/article-cover_image-shrink_600_2000/0/1711743360058?e=2147483647&v=beta&t=92RnC1aqgz2LUNt4YYq7Y-DSEkLE-9l2yYe7_xphhzM" alt="Blog">
+                            </div>
+                            <div class="blog-text">
+                                <h2>Comprehensive Overview of Apache Solr</h2>
+                                <div class="blog-meta">
+                                    <!-- <p><i class="far fa-user"></i>Admin</p> -->
+                                    <!-- <p><i class="far fa-list-alt"></i>Web Design</p> -->
+                                    <p><i class="far fa-calendar-alt"></i>19-Sept-2024</p>
+                                    <!-- <p><i class="far fa-comments"></i>5</p> -->
+                                </div>
+                                <p>
+                                    Apache Solr is an open-source search platform built on Apache Lucene. It provides powerful full-text search, faceted search, real-time indexing, dynamic clustering, database integration, and document handling capabilities like rich-text indexing and highlighting. Solr is designed for scalability, speed, and fault-tolerance, making it a top choice for large-scale enterprise search applications.
+                                </p>
+                                <a class="btn" target="_blank" href="https://medium.com/@lahirurajapakshe.stack/comprehensive-overview-of-apache-solr-9f15bfb24b5b">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="blog-item wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="blog-img">
+                                <img src="img/feignvsrest.png" alt="Blog">
+                            </div>
+                            <div class="blog-text">
+                                <h2>Feign Client vs Rest Client</h2>
+                                <div class="blog-meta">
+                                    <!-- <p><i class="far fa-user"></i>Admin</p>
+                                    <p><i class="far fa-list-alt"></i>Apps Design</p> -->
+                                    <p><i class="far fa-calendar-alt"></i>19-Sept-2024</p>
+                                    <!-- <p><i class="far fa-comments"></i>10</p> -->
+                                </div>
+                                <p>
+                                    In modern microservice architectures, services often need to communicate with each other via HTTP. Java offers multiple ways to make REST calls between services. Two popular approaches are Feign Client and RestTemplate (often referred to as Rest Client). Understanding the differences between them is essential for choosing the right tool for the job.                                </p>
+                                <a class="btn" href="https://medium.com/@lahirurajapakshe.stack/feign-client-vs-rest-client-a-comprehensive-guide-ad227272537a" target="_blank">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+
+        <!-- Footer Start -->
+        <div class="footer wow fadeIn" data-wow-delay="0.3s">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="footer-info">
+                        <h2>Lahiru Rajapakshe</h2>
+                        <div class="footer-menu">
+                            <p>+94 71 695 498 5</p>
+                            <p>laradev.master@gmail.com</p>
+                        </div>
+                        <div class="footer-social">
+                            <!-- <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>  -->
+                            <a href="https://www.facebook.com/profile.php?id=100056482615121&mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a>
+                            <!-- <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a> -->
+                            <!-- <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>  -->
+                            <a href="https://www.linkedin.com/in/lahirurj"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container copyright">
+                    <p>&copy; <a href="#">Lahiru Rajapakshe</a>, All Right Reserved</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer End -->
+        
+        
+        <!-- Back to top button -->
+        <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        
+        <!-- Pre Loader -->
+        <div id="loader" class="show">
+            <div class="loader"></div>
+        </div>
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/typed/typed.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
 </html>

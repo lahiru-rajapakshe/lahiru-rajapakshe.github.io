@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy-src:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,44 +16,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          
-      - name: Install dependencies
-        run: npm install
-        
-      - name: Build Angular application
-        run: npm run build
-        
-      - name: List build output
+      - name: Copy essential files to src
         run: |
-          echo "Checking build directory structure:"
-          ls -la dist
-          echo "Angular build output:"
-          ls -la dist/*
-        
-      - name: Prepare for deployment
-        run: |
-          touch dist/.nojekyll
-          cp CNAME dist/ || echo "No CNAME file found"
-          # Find the actual build folder and prepare it for deployment
-          if [ -d dist/spring-engineer-portfolio ]; then
-            echo "Found spring-engineer-portfolio subfolder"
-            mkdir -p dist_root
-            cp -r dist/spring-engineer-portfolio/* dist_root/
-            cp dist/.nojekyll dist_root/
-            cp dist/CNAME dist_root/ || echo "No CNAME file to copy"
-          else
-            echo "Using dist folder directly"
-            DEPLOY_FOLDER="dist"
-          fi
+          touch src/.nojekyll
+          cp CNAME src/ || echo "No CNAME file found"
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: ${{ runner.os == 'Linux' && (job.outputs.deploy_folder || (job.steps.prepare-for-deployment.outputs.found_subfolder && 'dist_root') || 'dist') }}
+          folder: src
           clean: true

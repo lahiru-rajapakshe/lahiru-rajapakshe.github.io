@@ -10,7 +10,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Explicitly set permissions
+      contents: write
     
     steps:
       - name: Checkout repository
@@ -27,16 +27,33 @@ jobs:
       - name: Build Angular application
         run: npm run build
         
+      - name: List build output
+        run: |
+          echo "Checking build directory structure:"
+          ls -la dist
+          echo "Angular build output:"
+          ls -la dist/*
+        
       - name: Prepare for deployment
         run: |
-          mkdir -p dist
           touch dist/.nojekyll
           cp CNAME dist/ || echo "No CNAME file found"
+          # Find the actual build folder and prepare it for deployment
+          if [ -d dist/spring-engineer-portfolio ]; then
+            echo "Found spring-engineer-portfolio subfolder"
+            mkdir -p dist_root
+            cp -r dist/spring-engineer-portfolio/* dist_root/
+            cp dist/.nojekyll dist_root/
+            cp dist/CNAME dist_root/ || echo "No CNAME file to copy"
+          else
+            echo "Using dist folder directly"
+            DEPLOY_FOLDER="dist"
+          fi
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Use default token
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: dist
+          folder: ${{ runner.os == 'Linux' && (job.outputs.deploy_folder || (job.steps.prepare-for-deployment.outputs.found_subfolder && 'dist_root') || 'dist') }}
           clean: true

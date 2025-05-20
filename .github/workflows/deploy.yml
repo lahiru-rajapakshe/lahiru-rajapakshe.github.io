@@ -9,6 +9,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Explicitly set permissions
     
     steps:
       - name: Checkout repository
@@ -19,28 +21,13 @@ jobs:
         with:
           node-version: 16
           
-      - name: Clear npm cache
-        run: npm cache clean --force
-        
-      - name: Remove package-lock.json and node_modules
-        run: |
-          rm -f package-lock.json
-          rm -rf node_modules
-          
-      - name: Install dependencies (with package-lock update)
+      - name: Install dependencies
         run: npm install
         
-      - name: List directory structure
-        run: ls -la
-        
       - name: Build Angular application
-        run: npm run build -- --configuration production
+        run: npm run build
         
-      - name: List build output
-        run: |
-          ls -la dist || echo "No dist directory found"
-          
-      - name: Create necessary files
+      - name: Prepare for deployment
         run: |
           mkdir -p dist
           touch dist/.nojekyll
@@ -49,7 +36,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use default token
           branch: gh-pages
           folder: dist
           clean: true

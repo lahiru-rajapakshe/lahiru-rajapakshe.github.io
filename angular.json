@@ -33,7 +33,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "/spring-engineer-portfolio/"
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
@@ -101,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "352fed7f-2ffa-4eef-8028-b7bf1af699fd"
   }
 }

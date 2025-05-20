@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --configuration production && npx angular-cli-ghpages --dir=dist/spring-engineer-portfolio"
+    "deploy": "ng build --configuration production --base-href=\"/\" && cp CNAME dist/spring-engineer-portfolio/ && touch dist/spring-engineer-portfolio/.nojekyll"
   },
   "private": true,
   "dependencies": {

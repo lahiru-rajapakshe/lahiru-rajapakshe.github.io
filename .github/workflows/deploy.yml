@@ -1,4 +1,4 @@
-name: Deploy Angular App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -7,28 +7,49 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy-debug:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Setup Node.js
+        
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-
+          node-version: 16
+          
       - name: Install dependencies
         run: npm install
-
-      - name: Build Angular app
-        run: npm run build -- --configuration production
-
-      - name: Deploy to GitHub Pages
+        
+      - name: Examine package.json build script
+        run: |
+          echo "Checking build configuration:"
+          grep -A 5 "scripts" package.json || echo "No scripts section found"
+          
+      - name: Check angular.json for output path
+        run: |
+          echo "Checking Angular output path:"
+          grep -A 5 "outputPath" angular.json || echo "No outputPath found"
+          
+      - name: Build Angular application
+        run: npm run build
+        
+      - name: Debug build output
+        run: |
+          echo "Contents of current directory:"
+          ls -la
+          echo "Contents of dist directory (if exists):"
+          ls -la dist || echo "No dist directory found"
+          echo "Checking nested directories in dist:"
+          find dist -type d -ls || echo "Cannot list nested directories"
+          
+      - name: Deploy from src directory directly
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: dist/lahiru-rajapakshe.github.io # 🔁 Replace this!
+          folder: src
+          clean: true

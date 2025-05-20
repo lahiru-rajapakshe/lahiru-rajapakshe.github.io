@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Angular App to GitHub Pages
 
 on:
   push:
@@ -7,24 +7,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-src:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
-      - name: Copy essential files to src
-        run: |
-          touch src/.nojekyll
-          cp CNAME src/ || echo "No CNAME file found"
-          
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: npm run build -- --configuration production
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: src
-          clean: true
+          folder: dist/lahiru-rajapakshe.github.io # 🔁 Replace this!

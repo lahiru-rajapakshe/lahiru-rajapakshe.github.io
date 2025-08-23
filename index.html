@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lahiru Rajapakshe - Senior Software Engineer</title>
     <style>
         /* Apple Font */
@@ -266,13 +266,14 @@
 
         /* Enhanced Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 120px 20px 60px;
         }
 
         .hero::before {
@@ -290,10 +291,11 @@
             max-width: 900px;
             padding: 0 20px;
             animation: fadeInUp 1.2s var(--ease-ios);
+            width: 100%;
         }
 
         .hero-greeting {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             color: var(--text-secondary);
             margin-bottom: 20px;
             opacity: 0;
@@ -302,7 +304,7 @@
         }
 
         .hero-title {
-            font-size: clamp(3.5rem, 9vw, 7rem);
+            font-size: clamp(2.5rem, 8vw, 7rem);
             font-weight: 800;
             margin-bottom: 28px;
             background: var(--gradient-rainbow);
@@ -442,7 +444,7 @@
         }
         
         .hero-subtitle {
-            font-size: 1.8rem;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
             color: var(--text-secondary);
             margin-bottom: 36px;
             opacity: 0;
@@ -453,7 +455,7 @@
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             line-height: 1.7;
             color: var(--text-secondary);
             margin-bottom: 56px;
@@ -483,13 +485,16 @@
             flex-wrap: wrap;
             opacity: 0;
             animation: fadeInUp 0.8s var(--ease-ios) 1.1s forwards;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .btn {
-            padding: 18px 36px;
+            padding: clamp(12px, 3vw, 18px) clamp(20px, 5vw, 36px);
             border: none;
             border-radius: 28px;
-            font-size: 1.05rem;
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s var(--ease-ios);
@@ -500,6 +505,8 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             letter-spacing: 0.3px;
+            text-align: center;
+            min-width: 150px;
         }
 
         .btn::before {
@@ -564,19 +571,21 @@
 
         /* Enhanced Sections */
         .section {
-            padding: 140px 20px;
+            padding: 120px 20px;
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
+            overflow: hidden;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
+            padding: 0 15px;
         }
 
         .section-title {
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
             margin-bottom: 28px;
             background: var(--gradient-primary);
@@ -589,7 +598,7 @@
         }
 
         .section-subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
@@ -601,9 +610,10 @@
         /* Enhanced Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 28px;
             margin-bottom: 80px;
+            padding: 0 10px;
         }
 
         /* Experience card specific styling */
@@ -661,11 +671,14 @@
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid var(--glass-border);
             border-radius: 28px;
-            padding: 36px;
+            padding: clamp(25px, 5vw, 36px);
             transition: all 0.4s var(--ease-ios);
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow-md), var(--inner-shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .skill-card::before {
@@ -685,7 +698,7 @@
         }
 
         .skill-card:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-8px) scale(1.01);
             box-shadow: var(--shadow-xl), var(--inner-shadow);
             border-color: var(--glass-border-heavy);
             background: var(--glass-bg-light);
@@ -751,8 +764,9 @@
         /* Enhanced Projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 36px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 10px;
         }
 
         .project-card {
@@ -765,6 +779,9 @@
             transition: all 0.4s var(--ease-ios);
             position: relative;
             box-shadow: var(--shadow-md), var(--inner-shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::after {
@@ -784,14 +801,15 @@
         }
 
         .project-card:hover {
-            transform: translateY(-16px) scale(1.03);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-xl), var(--inner-shadow);
             border-color: var(--glass-border-heavy);
         }
 
         .project-image {
             width: 100%;
-            height: 240px;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             background: var(--gradient-primary);
             display: flex;
             align-items: center;
@@ -815,11 +833,22 @@
         .project-card:hover .project-image::before {
             left: 100%;
         }
+        
+        .project-image > span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+        }
 
         .project-content {
-            padding: 32px;
+            padding: 25px;
             position: relative;
             z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-title {
@@ -836,6 +865,7 @@
             line-height: 1.7;
             margin-bottom: 20px;
             font-size: 1.05rem;
+            flex: 1;
         }
 
         .project-tech {
@@ -865,17 +895,20 @@
             background: linear-gradient(135deg, var(--background-secondary) 0%, rgba(28, 28, 30, 0.95) 100%);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 0 10px;
         }
 
         .contact-item {
             text-align: center;
-            padding: 40px 24px;
+            padding: 30px 20px;
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
@@ -886,6 +919,11 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow-md), var(--inner-shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .contact-item::before {
@@ -1115,41 +1153,111 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 380px) {
             .navbar {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 90%;
-                padding: 8px 12px;
+                width: 92%;
+                padding: 6px 10px;
                 border-radius: 15px;
             }
             
             .nav-link {
-                padding: 12px 15px;
-                font-size: 1rem;
-                width: 85%;
+                padding: 10px 12px;
+                font-size: 0.9rem;
+                width: 90%;
             }
-
-            .hero-content {
-                padding: 0 16px;
+            
+            .hero-title {
+                font-size: clamp(2.2rem, 7vw, 3rem);
             }
-
-            .section {
-                padding: 80px 12px;
+            
+            .hero-subtitle {
+                font-size: clamp(1rem, 3.5vw, 1.2rem);
             }
-
-            .section-header {
-                margin-bottom: 60px;
+            
+            .hero-company {
+                padding: 6px 12px;
+            }
+            
+            .company-name {
+                font-size: 1.2rem;
             }
             
             .btn {
-                padding: 15px 25px;
-                font-size: 0.95rem;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                min-width: 120px;
+            }
+            
+            .section {
+                padding: 70px 10px;
+            }
+            
+            .section-title {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+            
+            .section-subtitle {
+                font-size: clamp(0.9rem, 2vw, 1rem);
             }
             
             .skill-card, 
-            .project-card {
-                padding: 25px;
+            .project-card,
+            .contact-item {
+                padding: 20px;
+                border-radius: 20px;
+            }
+            
+            .skill-title,
+            .project-title {
+                font-size: 1.2rem;
+            }
+            
+            .skill-description,
+            .project-description {
+                font-size: 0.95rem;
+            }
+            
+            .skill-tag,
+            .tech-tag {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Support for portrait/landscape orientation changes */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .hero {
+                min-height: 450px;
+                height: auto;
+                padding: 120px 20px 40px;
+            }
+            
+            .navbar {
+                top: 10px;
+            }
+            
+            .hero-title {
+                margin-bottom: 15px;
+            }
+            
+            .hero-company-wrapper {
+                margin-bottom: 15px;
+            }
+            
+            .hero-subtitle {
+                margin-bottom: 15px;
+            }
+            
+            .hero-description {
+                margin-bottom: 25px;
+            }
+            
+            .section {
+                padding: 60px 15px;
+            }
+            
+            .section-header {
+                margin-bottom: 40px;
             }
         }
 
@@ -1169,34 +1277,65 @@
         .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
         .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Touch device enhancements */
+        .touch-device .nav-link:hover,
+        .touch-device .btn:hover,
+        .touch-device .skill-card:hover,
+        .touch-device .project-card:hover,
+        .touch-device .contact-item:hover {
+            transform: none;
         }
-
-        ::-webkit-scrollbar-track {
-            background: var(--background-secondary);
+        
+        .touch-device .nav-link.touch-active,
+        .touch-device .btn.touch-active {
+            transform: scale(0.98);
+            opacity: 0.9;
         }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--glass-bg);
-            border-radius: 10px;
-            border: 1px solid var(--glass-border);
+        
+        .touch-device .skill-card.touch-active,
+        .touch-device .project-card.touch-active,
+        .touch-device .contact-item.touch-active {
+            transform: translateY(-5px);
+            transition: transform 0.2s var(--ease-ios);
         }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--glass-bg-light);
+        
+        /* iOS height fix */
+        .hero {
+            height: 100vh; /* Fallback */
+            height: calc(var(--vh, 1vh) * 100);
         }
-
-        /* Selection styles */
-        ::selection {
-            background: rgba(0, 122, 255, 0.3);
-            color: white;
+        
+        /* Page visibility performance optimizations */
+        .page-hidden .animated-bg,
+        .page-hidden .animate-on-scroll {
+            animation-play-state: paused;
         }
-
-        ::-moz-selection {
-            background: rgba(0, 122, 255, 0.3);
-            color: white;
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .animate-on-scroll {
+                opacity: 1;
+                transform: none;
+            }
+            
+            .hero-greeting,
+            .hero-title,
+            .hero-company-wrapper,
+            .hero-subtitle,
+            .hero-description,
+            .btn-group {
+                opacity: 1;
+                animation: none;
+            }
         }
     </style>
 </head>
@@ -1694,28 +1833,71 @@
         `;
         document.head.appendChild(style);
 
-        // Mobile menu functionality
-        function initMobileMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navItems = document.getElementById('navItems');
-            const navLinks = document.querySelectorAll('.nav-link');
+        // Mobile and touch device enhancements
+        function initTouchDeviceEnhancements() {
+            // Detect touch device
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             
-            if (menuToggle) {
-                menuToggle.addEventListener('click', () => {
-                    menuToggle.classList.toggle('active');
-                    navItems.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
+            if (isTouchDevice) {
+                document.body.classList.add('touch-device');
+                
+                // Add active states for touch interfaces
+                const interactiveElements = document.querySelectorAll('.nav-link, .btn, .skill-card, .project-card, .contact-item');
+                
+                interactiveElements.forEach(el => {
+                    el.addEventListener('touchstart', function() {
+                        this.classList.add('touch-active');
+                    });
+                    
+                    el.addEventListener('touchend', function() {
+                        this.classList.remove('touch-active');
+                    });
+                    
+                    // Prevent hover stuck states on touch devices
+                    el.addEventListener('touchmove', function(e) {
+                        e.preventDefault();
+                        this.classList.remove('touch-active');
+                    });
                 });
+                
+                // Fix iOS 100vh issue
+                function fixIOSHeight() {
+                    const vh = window.innerHeight * 0.01;
+                    document.documentElement.style.setProperty('--vh', `${vh}px`);
+                }
+                
+                fixIOSHeight();
+                window.addEventListener('resize', fixIOSHeight);
+                window.addEventListener('orientationchange', fixIOSHeight);
+            }
+        }
+        
+        // Handle page visibility for performance
+        function handlePageVisibility() {
+            let hidden, visibilityChange;
+            
+            if (typeof document.hidden !== "undefined") {
+                hidden = "hidden";
+                visibilityChange = "visibilitychange";
+            } else if (typeof document.msHidden !== "undefined") {
+                hidden = "msHidden";
+                visibilityChange = "msvisibilitychange";
+            } else if (typeof document.webkitHidden !== "undefined") {
+                hidden = "webkitHidden";
+                visibilityChange = "webkitvisibilitychange";
             }
             
-            // Close menu when clicking nav links
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    navItems.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                });
-            });
+            if (typeof document.addEventListener !== "undefined" && hidden !== undefined) {
+                document.addEventListener(visibilityChange, function() {
+                    if (document[hidden]) {
+                        // Page is hidden, pause animations for performance
+                        document.body.classList.add('page-hidden');
+                    } else {
+                        // Page is visible, resume animations
+                        document.body.classList.remove('page-hidden');
+                    }
+                }, false);
+            }
         }
 
         // Initialize all features
@@ -1725,6 +1907,8 @@
             initCardEffects();
             initPageAnimation();
             initMobileMenu();
+            initTouchDeviceEnhancements();
+            handlePageVisibility();
             updateActiveNav();
             updateScrollProgress();
         });

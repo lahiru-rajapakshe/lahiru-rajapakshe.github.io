@@ -1210,8 +1210,63 @@
             z-index: 1001;
         }
 
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            border: 1px solid rgba(0, 122, 255, 0.3);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            transition: all 0.4s var(--ease-ios);
+            z-index: 999;
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 122, 255, 0.6);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .scroll-to-top svg {
+            transition: transform 0.3s var(--ease-ios);
+        }
+
+        .scroll-to-top:hover svg {
+            transform: translateY(-3px);
+        }
+
         /* Enhanced Mobile Responsive */
         @media (max-width: 768px) {
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+            }
+
             .hero-content {
                 flex-direction: column;
                 gap: 40px;
@@ -1569,10 +1624,486 @@
                 animation: none;
             }
         }
+        /* Backend Popup Styles - iOS 26 Theme */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 20px;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-container {
+            background: var(--glass-bg-heavy);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--glass-border-heavy);
+            border-radius: 32px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+                0 0 100px rgba(0, 122, 255, 0.2);
+            transform: scale(0.9) translateY(30px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .popup-overlay.active .popup-container {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        .popup-header {
+            padding: 28px 36px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.08) 0%, rgba(88, 86, 214, 0.05) 100%);
+        }
+
+        .popup-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+            letter-spacing: -0.02em;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .popup-close {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            line-height: 1;
+            padding: 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.1) rotate(90deg);
+            border-color: var(--glass-border-heavy);
+        }
+
+        .popup-close:active {
+            transform: scale(0.95) rotate(90deg);
+        }
+
+        .popup-content {
+            padding: 36px;
+            overflow-y: auto;
+            max-height: calc(90vh - 120px);
+            scrollbar-width: thin;
+            scrollbar-color: var(--glass-border) transparent;
+        }
+
+        .popup-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .popup-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .popup-content::-webkit-scrollbar-thumb {
+            background: var(--glass-border);
+            border-radius: 10px;
+        }
+
+        .popup-content::-webkit-scrollbar-thumb:hover {
+            background: var(--glass-border-heavy);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .tech-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px 16px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            animation: techItemFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .popup-overlay.active .tech-item {
+            animation: techItemFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .tech-item:nth-child(1) { animation-delay: 0.05s; }
+        .tech-item:nth-child(2) { animation-delay: 0.08s; }
+        .tech-item:nth-child(3) { animation-delay: 0.11s; }
+        .tech-item:nth-child(4) { animation-delay: 0.14s; }
+        .tech-item:nth-child(5) { animation-delay: 0.17s; }
+        .tech-item:nth-child(6) { animation-delay: 0.20s; }
+        .tech-item:nth-child(7) { animation-delay: 0.23s; }
+        .tech-item:nth-child(8) { animation-delay: 0.26s; }
+        .tech-item:nth-child(9) { animation-delay: 0.29s; }
+        .tech-item:nth-child(10) { animation-delay: 0.32s; }
+        .tech-item:nth-child(11) { animation-delay: 0.35s; }
+        .tech-item:nth-child(12) { animation-delay: 0.38s; }
+        .tech-item:nth-child(13) { animation-delay: 0.41s; }
+        .tech-item:nth-child(14) { animation-delay: 0.44s; }
+        .tech-item:nth-child(15) { animation-delay: 0.47s; }
+        .tech-item:nth-child(16) { animation-delay: 0.50s; }
+        .tech-item:nth-child(17) { animation-delay: 0.53s; }
+        .tech-item:nth-child(18) { animation-delay: 0.56s; }
+
+        @keyframes techItemFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, rgba(88, 86, 214, 0.08) 100%);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 20px;
+        }
+
+        .tech-item:hover::before {
+            opacity: 1;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 
+                0 20px 40px rgba(0, 122, 255, 0.25),
+                0 0 0 1px rgba(0, 122, 255, 0.2) inset;
+        }
+
+        .tech-item:active {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .tech-item-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-block;
+        }
+
+        .tech-item:hover .tech-item-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .tech-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            letter-spacing: -0.01em;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile Responsive for Popup */
+        @media (max-width: 768px) {
+            .popup-container {
+                max-width: 95%;
+                border-radius: 24px;
+            }
+
+            .popup-header {
+                padding: 20px 24px;
+            }
+
+            .popup-title {
+                font-size: 1.5rem;
+            }
+
+            .popup-close {
+                width: 38px;
+                height: 38px;
+                font-size: 24px;
+            }
+
+            .popup-content {
+                padding: 24px;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 12px;
+            }
+
+            .tech-item {
+                padding: 20px 12px;
+                border-radius: 16px;
+            }
+
+            .tech-item-icon {
+                font-size: 2rem;
+            }
+
+            .tech-item h4 {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-overlay {
+                padding: 10px;
+            }
+
+            .popup-container {
+                max-height: 95vh;
+                border-radius: 20px;
+            }
+
+            .popup-header {
+                padding: 16px 20px;
+            }
+
+            .popup-title {
+                font-size: 1.3rem;
+            }
+
+            .popup-content {
+                padding: 20px;
+                max-height: calc(95vh - 90px);
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 10px;
+            }
+
+            .tech-item {
+                padding: 16px 10px;
+                border-radius: 14px;
+            }
+
+            .tech-item-icon {
+                font-size: 1.8rem;
+                margin-bottom: 8px;
+            }
+
+            .tech-item h4 {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Add cursor pointer to backend card */
+        #backendCard {
+            cursor: pointer;
+        }
+
+        #backendCard:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        /* Add cursor pointer to simedia card */
+        #simediaCard {
+            cursor: pointer;
+        }
+
+        #simediaCard:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        /* Add cursor pointer to zora card */
+        #zoraCard {
+            cursor: pointer;
+        }
+
+        #zoraCard:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        /* Add cursor pointer to metasonic card */
+        #metasonicCard {
+            cursor: pointer;
+        }
+
+        #metasonicCard:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        /* Add cursor pointer to esg card */
+        #esgCard {
+            cursor: pointer;
+        }
+
+        #esgCard:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        /* Simedia Popup Specific Styles */
+        .tech-section {
+            margin-bottom: 32px;
+        }
+
+        .tech-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .tech-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--glass-border);
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.01em;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .tech-grid-large {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-item-featured {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.12) 0%, rgba(88, 86, 214, 0.08) 100%);
+            border: 2px solid var(--primary-color);
+            padding: 32px 20px;
+        }
+
+        .tech-item-featured .tech-item-icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+
+        .tech-item-featured h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .tech-item-featured:hover {
+            transform: translateY(-10px) scale(1.08);
+            box-shadow: 
+                0 25px 50px rgba(0, 122, 255, 0.35),
+                0 0 0 2px rgba(0, 122, 255, 0.3) inset;
+        }
+
+        .tech-category {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .tech-item-featured .tech-category {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid-large {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-section-title {
+                font-size: 1.1rem;
+            }
+
+            .tech-item-featured {
+                padding: 28px 16px;
+            }
+
+            .tech-item-featured .tech-item-icon {
+                font-size: 3rem;
+            }
+
+            .tech-item-featured h4 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tech-section {
+                margin-bottom: 24px;
+            }
+
+            .tech-section-title {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+
+            .tech-item-featured {
+                padding: 24px 12px;
+            }
+
+            .tech-item-featured .tech-item-icon {
+                font-size: 2.5rem;
+            }
+
+            .tech-item-featured h4 {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <!-- Enhanced Animated Background -->
     <div class="animated-bg">
@@ -1604,7 +2135,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text-content">
-                <p class="hero-greeting">I'm</p>
+                <p class="hero-greeting">It's</p>
                 <h1 class="hero-title" data-text="Lahiru Rajapakshe">Lahiru Rajapakshe</h1>
                 <div class="hero-company-wrapper">
                     <p class="hero-company">
@@ -1698,7 +2229,7 @@
         </div>
         
         <div class="skills-grid">
-            <div class="skill-card animate-on-scroll">
+            <div class="skill-card animate-on-scroll" id="backendCard" onclick="openBackendPopup()">
                 <div class="skill-icon">🚀</div>
                 <h3 class="skill-title">Backend Development</h3>
                 <p class="skill-description">
@@ -1756,7 +2287,7 @@
         </div>
         
         <div class="projects-grid">
-            <div class="project-card animate-on-scroll">
+            <div class="project-card animate-on-scroll" id="metasonicCard" onclick="openMetasonicPopup()">
                 <div class="project-image">📄</div>
                 <div class="project-content">
                     <h3 class="project-title">Metasonic</h3>
@@ -1765,15 +2296,15 @@
                         critical business documents with advanced search capabilities and secure access controls.
                     </p>
                     <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
                         <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Apache Solr</span>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card animate-on-scroll delay-1">
+            <div class="project-card animate-on-scroll delay-1" id="esgCard" onclick="openEsgPopup()">
                 <div class="project-image">🌿</div>
                 <div class="project-content">
                     <h3 class="project-title">ESG Assistance</h3>
@@ -1782,15 +2313,15 @@
                         generate compliance reports, and improve their ESG performance through data-driven insights.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">MongoDB</span>
                         <span class="tech-tag">Angular</span>
-                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Kafka</span>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card animate-on-scroll delay-2 ongoing-project">
+            <div class="project-card animate-on-scroll delay-2 ongoing-project" id="simediaCard" onclick="openSimediaPopup()">
                 <div class="ongoing-badge">ONGOING</div>
                 <div class="project-image">🏨</div>
                 <div class="project-content">
@@ -1800,15 +2331,15 @@
                         staff management, and reporting for hotels of all sizes to enhance operational efficiency.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">.NET</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Kafka</span>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card animate-on-scroll">
+            <div class="project-card animate-on-scroll" id="zoraCard" onclick="openZoraPopup()">
                 <div class="project-image">🎟️</div>
                 <div class="project-content">
                     <h3 class="project-title">Zora Ticket System</h3>
@@ -1817,10 +2348,10 @@
                         and manage bookings with real-time availability updates and automated notifications.
                     </p>
                     <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
                         <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Stripe API</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Twilio</span>
                     </div>
                 </div>
             </div>
@@ -1867,6 +2398,372 @@
     <footer class="footer">
         <p>&copy; 2025 Lahiru Rajapakshe - Software Engineer. Crafting enterprise solutions with passion and precision.</p>
     </footer>
+    <!-- Backend Technologies Popup -->
+    <div id="backendPopup" class="popup-overlay">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2 class="popup-title">Backend Technologies</h2>
+                <button class="popup-close" onclick="closeBackendPopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-item-icon">☕</div>
+                        <h4>Java EE</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🍃</div>
+                        <h4>Spring Framework</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🚀</div>
+                        <h4>Spring Boot</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">📦</div>
+                        <h4>Maven</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🐘</div>
+                        <h4>Gradle</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🔤</div>
+                        <h4>Spring SpEL</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">📨</div>
+                        <h4>Apache Kafka</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🔍</div>
+                        <h4>Apache Solr</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🎯</div>
+                        <h4>Kotlin</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">⚡</div>
+                        <h4>Spring WebFlux</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🏗️</div>
+                        <h4>Microservices</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">⚙️</div>
+                        <h4>JMeter</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🧪</div>
+                        <h4>Cypress</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">📊</div>
+                        <h4>Grafana</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">📈</div>
+                        <h4>Prometheus</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🐳</div>
+                        <h4>Docker</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🍃</div>
+                        <h4>MongoDB</h4>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-item-icon">🗄️</div>
+                        <h4>SQL</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Simedia Technologies Popup -->
+    <div id="simediaPopup" class="popup-overlay">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2 class="popup-title">Simedia - Tech Stack</h2>
+                <button class="popup-close" onclick="closeSimediaPopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <!-- Frontend & Backend Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Core Technologies</h3>
+                    <div class="tech-grid tech-grid-large">
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">⚛️</div>
+                            <h4>React.js</h4>
+                            <p class="tech-category">Frontend</p>
+                        </div>
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">🔷</div>
+                            <h4>.NET</h4>
+                            <p class="tech-category">Backend</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supporting Technologies Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Supporting Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-item-icon">⚡</div>
+                            <h4>Grafana K6</h4>
+                            <p class="tech-category">Testing</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📨</div>
+                            <h4>Apache Kafka</h4>
+                            <p class="tech-category">Messaging</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🦊</div>
+                            <h4>GitLab</h4>
+                            <p class="tech-category">Version Control</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📋</div>
+                            <h4>Jira</h4>
+                            <p class="tech-category">Project Management</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📊</div>
+                            <h4>Grafana</h4>
+                            <p class="tech-category">Monitoring</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🍃</div>
+                            <h4>MongoDB</h4>
+                            <p class="tech-category">Database</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🤖</div>
+                            <h4>LLM (AI Services)</h4>
+                            <p class="tech-category">Artificial Intelligence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ESG Assistance Technologies Popup -->
+    <div id="esgPopup" class="popup-overlay">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2 class="popup-title">ESG Assistance - Tech Stack</h2>
+                <button class="popup-close" onclick="closeEsgPopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <!-- Frontend & Backend Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Core Technologies</h3>
+                    <div class="tech-grid tech-grid-large">
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">🅰️</div>
+                            <h4>Angular</h4>
+                            <p class="tech-category">Frontend</p>
+                        </div>
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">🎯</div>
+                            <h4>Kotlin</h4>
+                            <p class="tech-category">Backend</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supporting Technologies Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Supporting Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-item-icon">⚡</div>
+                            <h4>Grafana K6</h4>
+                            <p class="tech-category">Testing</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📨</div>
+                            <h4>Apache Kafka</h4>
+                            <p class="tech-category">Messaging</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🦊</div>
+                            <h4>GitLab</h4>
+                            <p class="tech-category">Version Control</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📋</div>
+                            <h4>Jira</h4>
+                            <p class="tech-category">Project Management</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📊</div>
+                            <h4>Grafana</h4>
+                            <p class="tech-category">Monitoring</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🍃</div>
+                            <h4>MongoDB</h4>
+                            <p class="tech-category">Database</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🤖</div>
+                            <h4>LLM (AI Services)</h4>
+                            <p class="tech-category">Artificial Intelligence</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🐰</div>
+                            <h4>RabbitMQ</h4>
+                            <p class="tech-category">Message Broker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Metasonic Technologies Popup -->
+    <div id="metasonicPopup" class="popup-overlay">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2 class="popup-title">Metasonic - Tech Stack</h2>
+                <button class="popup-close" onclick="closeMetasonicPopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <!-- Frontend & Backend Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Core Technologies</h3>
+                    <div class="tech-grid tech-grid-large">
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">⚛️</div>
+                            <h4>React.js</h4>
+                            <p class="tech-category">Frontend</p>
+                        </div>
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">🍃</div>
+                            <h4>Spring Boot</h4>
+                            <p class="tech-category">Backend</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supporting Technologies Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Supporting Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-item-icon">⚡</div>
+                            <h4>Grafana K6</h4>
+                            <p class="tech-category">Testing</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📨</div>
+                            <h4>Apache Kafka</h4>
+                            <p class="tech-category">Messaging</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🦊</div>
+                            <h4>GitLab</h4>
+                            <p class="tech-category">Version Control</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📋</div>
+                            <h4>Jira</h4>
+                            <p class="tech-category">Project Management</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📊</div>
+                            <h4>Grafana</h4>
+                            <p class="tech-category">Monitoring</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🍃</div>
+                            <h4>MongoDB</h4>
+                            <p class="tech-category">Database</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🔍</div>
+                            <h4>Apache Solr</h4>
+                            <p class="tech-category">Search Engine</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📷</div>
+                            <h4>OCR</h4>
+                            <p class="tech-category">Document Processing</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🗄️</div>
+                            <h4>Minio</h4>
+                            <p class="tech-category">Object Storage</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">⚙️</div>
+                            <h4>JMeter</h4>
+                            <p class="tech-category">Performance Testing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Zora Ticket System Technologies Popup -->
+    <div id="zoraPopup" class="popup-overlay">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2 class="popup-title">Zora Ticket System - Tech Stack</h2>
+                <button class="popup-close" onclick="closeZoraPopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <!-- Frontend & Backend Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Core Technologies</h3>
+                    <div class="tech-grid tech-grid-large">
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">⚛️</div>
+                            <h4>React.js</h4>
+                            <p class="tech-category">Frontend</p>
+                        </div>
+                        <div class="tech-item tech-item-featured">
+                            <div class="tech-item-icon">🍃</div>
+                            <h4>Spring Boot</h4>
+                            <p class="tech-category">Backend</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supporting Technologies Section -->
+                <div class="tech-section">
+                    <h3 class="tech-section-title">Supporting Technologies</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🦊</div>
+                            <h4>GitLab</h4>
+                            <p class="tech-category">Version Control</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">✅</div>
+                            <h4>ClickUp</h4>
+                            <p class="tech-category">Project Management</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">🍃</div>
+                            <h4>MongoDB</h4>
+                            <p class="tech-category">Database</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">📱</div>
+                            <h4>Twilio</h4>
+                            <p class="tech-category">Communication</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         // Enhanced smooth scrolling with iOS-like easing
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2141,6 +3038,36 @@
             }
         }
 
+        // Scroll to Top Button functionality
+        function initScrollToTop() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+
+            // Show/hide button based on scroll position
+            function toggleScrollToTopButton() {
+                if (window.pageYOffset > 200) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            }
+
+            // Scroll to top when button is clicked
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Check on scroll - without throttle for immediate response
+            window.addEventListener('scroll', () => {
+                toggleScrollToTopButton();
+            });
+
+            // Initial check
+            toggleScrollToTopButton();
+        }
+
         // Initialize all features
         document.addEventListener('DOMContentLoaded', () => {
             initScrollAnimations();
@@ -2150,6 +3077,7 @@
             initMobileMenu();
             initTouchDeviceEnhancements();
             handlePageVisibility();
+            initScrollToTop();
             updateActiveNav();
             updateScrollProgress();
         });
@@ -2182,6 +3110,157 @@
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             document.documentElement.style.scrollBehavior = 'auto';
         }
+
+        // Backend Popup Functions
+        function openBackendPopup() {
+            const popup = document.getElementById('backendPopup');
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset animation for tech items
+            const techItems = popup.querySelectorAll('.tech-item');
+            techItems.forEach(item => {
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                item.style.animation = null;
+            });
+        }
+
+        function closeBackendPopup() {
+            const popup = document.getElementById('backendPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('backendPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBackendPopup();
+            }
+        });
+
+        // Simedia Popup Functions
+        function openSimediaPopup() {
+            const popup = document.getElementById('simediaPopup');
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset animation for tech items
+            const techItems = popup.querySelectorAll('.tech-item');
+            techItems.forEach(item => {
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                item.style.animation = null;
+            });
+        }
+
+        function closeSimediaPopup() {
+            const popup = document.getElementById('simediaPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('simediaPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSimediaPopup();
+            }
+        });
+
+        // ESG Assistance Popup Functions
+        function openEsgPopup() {
+            const popup = document.getElementById('esgPopup');
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset animation for tech items
+            const techItems = popup.querySelectorAll('.tech-item');
+            techItems.forEach(item => {
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                item.style.animation = null;
+            });
+        }
+
+        function closeEsgPopup() {
+            const popup = document.getElementById('esgPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('esgPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEsgPopup();
+            }
+        });
+
+        // Metasonic Popup Functions
+        function openMetasonicPopup() {
+            const popup = document.getElementById('metasonicPopup');
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset animation for tech items
+            const techItems = popup.querySelectorAll('.tech-item');
+            techItems.forEach(item => {
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                item.style.animation = null;
+            });
+        }
+
+        function closeMetasonicPopup() {
+            const popup = document.getElementById('metasonicPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('metasonicPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeMetasonicPopup();
+            }
+        });
+
+        // Zora Ticket System Popup Functions
+        function openZoraPopup() {
+            const popup = document.getElementById('zoraPopup');
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset animation for tech items
+            const techItems = popup.querySelectorAll('.tech-item');
+            techItems.forEach(item => {
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                item.style.animation = null;
+            });
+        }
+
+        function closeZoraPopup() {
+            const popup = document.getElementById('zoraPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('zoraPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeZoraPopup();
+            }
+        });
+
+        // Update the Escape key handler to close all popups
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBackendPopup();
+                closeSimediaPopup();
+                closeEsgPopup();
+                closeMetasonicPopup();
+                closeZoraPopup();
+            }
+        });
 
         // Service worker for offline capability (optional)
         if ('serviceWorker' in navigator) {

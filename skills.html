@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Stack | Lahiru Rajapakshe</title>
+    <meta name="description" content="Tech stack of Lahiru Rajapakshe - Senior Software Engineer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <style>
+        .tech-section { margin-bottom: 60px; }
+        .tech-section-title { font-size: 1.5rem; margin-bottom: 30px; color: var(--primary); position: relative; padding-bottom: 15px; }
+        .tech-section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--accent); }
+        .tech-icons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 25px; }
+        .tech-icon-card { background: var(--white); padding: 25px 15px; box-shadow: var(--shadow); text-align: center; transition: var(--transition); }
+        .tech-icon-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .tech-icon-card:hover .tech-icon-img { color: var(--accent); }
+        .tech-icon-img { font-size: 48px; margin-bottom: 12px; color: var(--primary); transition: var(--transition); }
+        .tech-icon-name { font-size: 0.9rem; font-weight: 500; color: var(--primary); }
+        @media (max-width: 768px) { .tech-icons-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; } .tech-icon-card { padding: 20px 10px; } .tech-icon-img { font-size: 36px; } }
+        @media (max-width: 480px) { .tech-icons-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-box">L</div>
+                <div class="logo-text">
+                    <span class="logo-name">LAHIRU</span>
+                    <span class="logo-name accent">RAJAPAKSHE</span>
+                </div>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="skills.html" class="nav-link active">Tech Stack</a>
+                <a href="experience.html" class="nav-link">Experience</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="btn btn-primary nav-cta">Hire Me</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="page-header-decor top-left"></div>
+        <div class="page-header-decor bottom-right"></div>
+        <div class="container">
+            <div class="page-header-content">
+                <p class="section-subtitle light">Technologies</p>
+                <h1>Tech Stack</h1>
+                <p>Tools and technologies I work with</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <!-- Backend -->
+            <div class="tech-section">
+                <h3 class="tech-section-title">Backend Development</h3>
+                <div class="tech-icons-grid">
+                    <div class="tech-icon-card">
+                        <i class="devicon-java-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Java</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-spring-original tech-icon-img"></i>
+                        <p class="tech-icon-name">Spring Boot</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-kotlin-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Kotlin</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-dotnetcore-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">.NET</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-nodejs-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Node.js</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="tech-section">
+                <h3 class="tech-section-title">Frontend Development</h3>
+                <div class="tech-icons-grid">
+                    <div class="tech-icon-card">
+                        <i class="devicon-react-original tech-icon-img"></i>
+                        <p class="tech-icon-name">React.js</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-angular-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Angular</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-typescript-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">TypeScript</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-javascript-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">JavaScript</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-html5-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">HTML5</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-css3-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">CSS3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="tech-section">
+                <h3 class="tech-section-title">Databases & Search</h3>
+                <div class="tech-icons-grid">
+                    <div class="tech-icon-card">
+                        <i class="devicon-mongodb-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">MongoDB</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-postgresql-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">PostgreSQL</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-mysql-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">MySQL</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-redis-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Redis</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-apachesolr-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Apache Solr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messaging -->
+            <div class="tech-section">
+                <h3 class="tech-section-title">Messaging & Streaming</h3>
+                <div class="tech-icons-grid">
+                    <div class="tech-icon-card">
+                        <i class="devicon-apachekafka-original tech-icon-img"></i>
+                        <p class="tech-icon-name">Apache Kafka</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-rabbitmq-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">RabbitMQ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps -->
+            <div class="tech-section">
+                <h3 class="tech-section-title">DevOps & Cloud</h3>
+                <div class="tech-icons-grid">
+                    <div class="tech-icon-card">
+                        <i class="devicon-docker-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Docker</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-kubernetes-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Kubernetes</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-gitlab-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">GitLab CI/CD</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-grafana-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Grafana</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-jenkins-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Jenkins</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-amazonwebservices-plain-wordmark tech-icon-img"></i>
+                        <p class="tech-icon-name">AWS</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="tech-section">
+                <h3 class="tech-section-title">Tools & Others</h3>
+                <div class="tech-icons-grid">
+                    <div class="tech-icon-card">
+                        <i class="devicon-git-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Git</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-jira-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Jira</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-postman-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">Postman</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-intellij-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">IntelliJ IDEA</p>
+                    </div>
+                    <div class="tech-icon-card">
+                        <i class="devicon-vscode-plain tech-icon-img"></i>
+                        <p class="tech-icon-name">VS Code</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Discuss Your Project?</h2>
+            <p>Let's explore how my skills can contribute to your success.</p>
+            <a href="contact.html" class="btn btn-dark">Contact Me</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-box">L</div>
+                        <div class="logo-text">
+                            <span class="logo-name">LAHIRU</span>
+                            <span class="logo-name accent">RAJAPAKSHE</span>
+                        </div>
+                    </div>
+                    <p>Senior Software Engineer specializing in Java, Spring Boot, and microservices architecture.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="skills.html">Tech Stack</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span>lahiru@example.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <span id="currentYear"></span> Lahiru Rajapakshe. All rights reserved.</p>
+                <p>Built with HTML, CSS & JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

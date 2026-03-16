@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Lahiru Rajapakshe</title>
+    <meta name="description" content="Professional experience of Lahiru Rajapakshe - Senior Software Engineer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .timeline { position: relative; padding-left: 40px; }
+        .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+        .timeline-item { position: relative; margin-bottom: 50px; background: var(--white); padding: 30px; box-shadow: var(--shadow); }
+        .timeline-item::before { content: ''; position: absolute; left: -32px; top: 30px; width: 18px; height: 18px; background: var(--accent); border-radius: 50%; border: 4px solid var(--primary); }
+        .timeline-date { display: inline-block; background: var(--accent); color: var(--primary); padding: 5px 15px; font-weight: 600; font-size: 0.9rem; margin-bottom: 15px; }
+        .timeline-item h3 { color: var(--primary); margin-bottom: 5px; }
+        .timeline-company { color: var(--accent); font-weight: 500; margin-bottom: 15px; display: block; }
+        .timeline-item p { color: var(--dark-gray); margin-bottom: 15px; }
+        .timeline-tech { display: flex; flex-wrap: wrap; gap: 8px; }
+        @media (max-width: 768px) { .timeline { padding-left: 25px; } .timeline::before { left: 8px; } .timeline-item::before { left: -24px; width: 14px; height: 14px; } }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-box">L</div>
+                <div class="logo-text">
+                    <span class="logo-name">LAHIRU</span>
+                    <span class="logo-name accent">RAJAPAKSHE</span>
+                </div>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="skills.html" class="nav-link">Tech Stack</a>
+                <a href="experience.html" class="nav-link active">Experience</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="btn btn-primary nav-cta">Hire Me</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-decor top-left"></div>
+        <div class="page-header-decor bottom-right"></div>
+        <div class="container">
+            <div class="page-header-content">
+                <p class="section-subtitle light">My Journey</p>
+                <h1>Experience</h1>
+                <p>Professional work history and career timeline</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section">
+        <div class="container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">2023 - Present</span>
+                    <h3>Senior Backend Engineer</h3>
+                    <span class="timeline-company">Tech Solutions Inc.</span>
+                    <p>Lead backend developer for a high-traffic financial services platform built with Spring Boot microservices. Design and implement scalable, resilient services processing thousands of transactions per minute.</p>
+                    <ul style="color: var(--dark-gray); margin-bottom: 15px; padding-left: 20px;">
+                        <li>Redesigned the payment processing service, reducing latency by 40% and improving throughput by 300%</li>
+                        <li>Implemented a new event-driven architecture using Kafka that improved system resilience and decoupled critical services</li>
+                        <li>Led migration from monolith to microservices, resulting in 50% faster deployment cycles and improved system stability</li>
+                        <li>Mentored junior developers and established coding standards and best practices for the backend team</li>
+                    </ul>
+                    <div class="timeline-tech">
+                        <span class="tag">Java 17</span>
+                        <span class="tag">Spring Boot 3</span>
+                        <span class="tag">Spring Cloud</span>
+                        <span class="tag">Kafka</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Redis</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2021 - 2023</span>
+                    <h3>Java Developer</h3>
+                    <span class="timeline-company">Financial Systems Ltd.</span>
+                    <p>Developed and maintained Java/Spring Boot applications for a financial reporting platform used by major banks. Worked in an agile team to deliver new features and ensure high availability of critical services.</p>
+                    <ul style="color: var(--dark-gray); margin-bottom: 15px; padding-left: 20px;">
+                        <li>Developed a new reporting engine that processed data 3x faster than the previous solution</li>
+                        <li>Implemented comprehensive test coverage increasing it from 45% to 85%, significantly reducing production bugs</li>
+                        <li>Created a new batch processing system using Spring Batch, optimizing database operations and reducing processing time by 60%</li>
+                        <li>Contributed to the migration from legacy authentication to OAuth2/JWT, improving security posture</li>
+                    </ul>
+                    <div class="timeline-tech">
+                        <span class="tag">Java 11</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">Spring Data JPA</span>
+                        <span class="tag">Hibernate</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Jenkins</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2020 - 2021</span>
+                    <h3>Junior Backend Developer</h3>
+                    <span class="timeline-company">Web Ventures</span>
+                    <p>Worked on RESTful API development for various client projects using Java and Spring Boot. Gained experience in the full software development lifecycle while working in an agile environment.</p>
+                    <ul style="color: var(--dark-gray); margin-bottom: 15px; padding-left: 20px;">
+                        <li>Built RESTful APIs for multiple client applications, handling authentication, data validation, and business logic</li>
+                        <li>Implemented database schema design and optimization for improved query performance</li>
+                        <li>Developed and maintained unit tests with JUnit and integration tests with Spring Test</li>
+                        <li>Contributed to internal code libraries that increased team productivity</li>
+                    </ul>
+                    <div class="timeline-tech">
+                        <span class="tag">Java 8</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">Spring MVC</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Maven</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div style="margin-top: 80px;">
+                <p class="section-subtitle">Education</p>
+                <h2 class="section-title">Academic Background</h2>
+                <div style="background: var(--light-gray); padding: 40px; margin-top: 30px;">
+                    <h3 style="margin-bottom: 10px;">Bachelor of Science in Computer Science</h3>
+                    <p style="color: var(--accent); font-weight: 500; margin-bottom: 15px;">University of Colombo | 2017 - 2021</p>
+                    <p style="color: var(--dark-gray);">Specialized in Software Engineering with focus on distributed systems and database management. Graduated with honors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Interested in Working Together?</h2>
+            <p>I'm always open to discussing new opportunities and challenges.</p>
+            <a href="contact.html" class="btn btn-dark">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-box">L</div>
+                        <div class="logo-text">
+                            <span class="logo-name">LAHIRU</span>
+                            <span class="logo-name accent">RAJAPAKSHE</span>
+                        </div>
+                    </div>
+                    <p>Senior Software Engineer specializing in Java, Spring Boot, and microservices architecture.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="skills.html">Tech Stack</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span>lahiru@example.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <span id="currentYear"></span> Lahiru Rajapakshe. All rights reserved.</p>
+                <p>Built with HTML, CSS & JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
